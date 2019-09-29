@@ -10,7 +10,7 @@ const deckJugadas = [];
 //"i" es para la cantidad de colores de fichas, y sirve también para buscar dentro de un array que tiene strings de dichos colores.
 //"j" es para repetir cada juego de trece fichas 2 veces, ya que, de cada color, existen 2 juegos de fichas.
 //"k" es para el valor de cada ficha (1-13), que dobletea como valor de suma en algunos casos específicos.
-var i, j, k;
+let i, j, k;
 
 //Clase para todas las fichas.
 //"this.nombre" será utilizado únicamente por el comodín, y llevará ese nombre sin acento.
@@ -42,6 +42,9 @@ Básicamente lo que TIENE que hacer es:
     2)Interactuar con el resto del programa (cosa que aún no hace)
       2.1) El jugador podrá ver sus fichas, obviamente en el HTML.
 */
+/**
+ * Inicializar Jugador - ¿Qué hace?
+ */
 
 function inicializarJugador() {
   document.getElementById("deck").innerHTML = "";
@@ -99,12 +102,14 @@ function assignDeck() {
   }
 }
 
-/*Función para revolver todas las fichas.
-fuente: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array*/
+/**
+ * Shuffle an array
+ * @param {Array<any>} deck - Deck of Rummy cards
+ */
 function shuffle(deck) {
-  for (var i = deck.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var temp = deck[i];
+  for (let i = deck.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    let temp = deck[i];
     deck[i] = deck[j];
     deck[j] = temp;
   }
